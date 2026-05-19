@@ -108,8 +108,10 @@ if uploaded_file is not None:
     st.subheader("☁️ EV Discussion Word Cloud")
 
     text = " ".join(
-        df['clean_comment'].astype(str)
-    )
+    df['clean_comment']
+    .dropna()
+    .astype(str)
+)
 
     wordcloud = WordCloud(
         width=800,
